@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:complexType name="motherType">
+    <xs:sequence>
+      <xs:element minOccurs="2" maxOccurs="2" name="daughter" type="daughterType"/>
+    </xs:sequence>
+    <xs:attribute name="cat" type="categoryType" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="daughterType">
+    <xs:attribute name="cat" type="categoryType" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="wordType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="cat" type="categoryType" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="mother" type="motherType"/>
+  <xs:element name="word" type="wordType"/>
+  <xs:element name="grammar">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="rules">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" ref="mother"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="lexicalRules">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="word" maxOccurs="unbounded"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="startCat" type="categoryType" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:simpleType name="categoryType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="s"/>
+      <xs:enumeration value="np"/>
+      <xs:enumeration value="vp"/>
+      <xs:enumeration value="cn"/>
+      <xs:enumeration value="vt"/>
+      <xs:enumeration value="dt"/>
+      <xs:enumeration value="jj"/>
+      <xs:enumeration value="wp"/>
+      <xs:enumeration value="rp"/>
+      <xs:enumeration value="pp"/>
+      <xs:enumeration value="pr"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

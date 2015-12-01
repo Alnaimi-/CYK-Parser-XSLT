@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="grammar.xsd" startCat="s">
+    <rules>
+        <mother cat="s">
+            <daughter cat="np"/>
+            <daughter cat="vp"/>
+        </mother>
+        <mother cat="vp">
+            <daughter cat="vt"/>
+            <daughter cat="np"/>
+        </mother>
+        <mother cat="np">
+            <daughter cat="dt"/>
+            <daughter cat="cn"/>
+        </mother>
+        <mother cat="np">
+            <daughter cat="np"/>
+            <daughter cat="pp"/>
+        </mother>
+        <mother cat="np">
+            <daughter cat="np"/>
+            <daughter cat="wp"/>
+        </mother>
+        <mother cat="cn">
+            <daughter cat="cn"/>
+            <daughter cat="wp"/>
+        </mother>
+        <mother cat="pp">
+            <daughter cat="pr"/>
+            <daughter cat="np"/>
+        </mother>
+        <mother cat="wp">
+            <daughter cat="rp"/>
+            <daughter cat="vp"/>
+        </mother>
+        <mother cat="cn">
+            <daughter cat="jj"/>
+            <daughter cat="cn"/>
+        </mother>
+        <mother cat="np">
+            <daughter cat="jj"/>
+            <daughter cat="np"/>
+        </mother>
+    </rules>
+    <lexicalRules>
+        <word cat="vp">snores</word>
+        <word cat="vt">likes</word>
+        <word cat="np">john</word>
+        <word cat="np">mary</word>
+        <word cat="np">tuna</word>
+        <word cat="cn">boy</word>
+        <word cat="cn">girl</word>
+        <word cat="cn">cat</word>
+        <word cat="cn">tuna</word>
+        <word cat="dt">the</word>
+        <word cat="dt">a</word>
+        <word cat="dt">any</word>
+        <word cat="dt">every</word>
+        <word cat="jj">tasty</word>
+        <word cat="jj">greedy</word>
+        <word cat="rp">who</word>
+        <word cat="pr">with</word>
+    </lexicalRules>
+</grammar>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<corpus xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="corpus.xsd">
+    <s>john snores</s>
+    <s>mary likes tuna</s>
+    <s>mary likes john</s>
+    <s>john likes the girl</s>
+    <s>the cat likes tuna</s>
+    <s>the girl likes the cat</s>
+    <s>a cat with tuna snores</s>
+    <s>the cat likes the girl with the tuna</s>
+    <s>the boy with a greedy cat likes every girl with tasty tuna</s>
+    <s>the cat who likes tuna likes the boy who snores</s>
+</corpus>

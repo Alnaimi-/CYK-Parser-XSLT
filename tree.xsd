@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified"
+    vc:minVersion="1.0" vc:maxVersion="1.1">
+    
+    <!-- 
+        Here we chose to put each tree (sentence) 
+        into a TreeBank to enhance readability 
+    -->
+    <xs:element name="TreeBank">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" ref="tree"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="tree">
+        <xs:complexType>
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" ref="node"/>
+        </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="node">
+        <xs:complexType>                        
+            <xs:choice maxOccurs="unbounded">
+                <xs:element ref="node"/>
+                <xs:element ref="word"/>
+            </xs:choice>
+            
+            <xs:attribute name="cat" type="xs:string"/>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="word">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:string">                    
+                    <xs:attribute name="cat" type="xs:string"/>    
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
